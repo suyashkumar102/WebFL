@@ -20,8 +20,7 @@ networkx==3.3
 numpy==1.26.4
 onnx==1.16.2
 onnx2pytorch==0.4.1
-onnxruntime==1.19.0
-onnxruntime-training-cpu==1.18.0
+onnxruntime-training-cpu==1.19.2
 packaging==24.1
 pillow==10.4.0
 protobuf==5.27.3
