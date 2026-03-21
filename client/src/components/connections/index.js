@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import JSZip from 'jszip';
 import * as ort from 'onnxruntime-web/training';
 
-ort.env.wasm.wasmPaths = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.0/dist/"; // Need to add otherwise the wasm path will be pointed to the file path which will not work due to restrictions on the browser
+ort.env.wasm.wasmPaths = "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.0/dist/"; // Need to add otherwise the wasm path will be pointed to the file path which will not work due to restrictions on the browser
 
 
 const SocketContext = createContext();
