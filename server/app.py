@@ -32,6 +32,10 @@ federation_round = 0
 webfl_client_id = 0
 MAX_FEDERATION_ROUNDS = 1001
 
+
+def env_flag(name, default):
+    return os.getenv(name, str(default)).strip().lower() in {"1", "true", "yes", "on"}
+
 def create_global_model():
     global global_model
     model = global_model
@@ -149,4 +153,14 @@ def continue_training(data):
         emit('disconnect', {'data': 'Federation rounds have been completed'}, broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    host = os.getenv("WEBFL_SERVER_HOST", "127.0.0.1")
+    port = int(os.getenv("WEBFL_SERVER_PORT", os.getenv("PORT", "5000")))
+    debug = env_flag("WEBFL_DEBUG", True)
+
+    socketio.run(
+        app,
+        host=host,
+        port=port,
+        debug=debug,
+        allow_unsafe_werkzeug=True,
+    )
